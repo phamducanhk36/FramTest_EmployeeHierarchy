@@ -32,10 +32,11 @@ public class AuthController {
 
             User user = (User) authentication.getPrincipal();
             String accessToken = jwtUtil.generateAccessToken(user);
+            log.debug("[/auth/login] User Logged in: {}", request.getUsername());
             return ResponseEntity.ok().body(new LoginResponse(accessToken));
 
         } catch (BadCredentialsException ex) {
-            log.error("", ex);
+            log.error("[/auth/login] BadCredentialsException: ", ex);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }

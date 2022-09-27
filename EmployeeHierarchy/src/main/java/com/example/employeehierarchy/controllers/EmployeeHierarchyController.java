@@ -1,7 +1,6 @@
 package com.example.employeehierarchy.controllers;
 
 import com.example.employeehierarchy.dtos.BaseResponse;
-import com.example.employeehierarchy.models.EmployeeHierarchy;
 import com.example.employeehierarchy.services.EmployeeHierarchyService;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONObject;
@@ -9,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController

@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,7 +34,7 @@ public class EmployeeHierarchyService {
     }
 
     public String validateEmployeeHierarchy(HashMap<String, String> payload) {
-        List<String> root = payload.keySet().stream().filter(p -> !payload.containsKey(payload.get(p))).collect(Collectors.toList());
+        Set<String> root = payload.keySet().stream().filter(p -> !payload.containsKey(payload.get(p))).map(payload::get).collect(Collectors.toSet());
         if (root.size() > 1) {
             return "Multiple root!";
         }
